@@ -1,0 +1,3 @@
+<?php
+
+$wam->scr->footer();

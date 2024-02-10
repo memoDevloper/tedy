@@ -1,0 +1,11 @@
+RewriteEngine On
+
+ErrorDocument 404 .errordocs/403.html
+
+RewriteCond %{HTTPS} !=on
+ RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^ /index.php?dir=%{REQUEST_URI} [L]
